@@ -124,8 +124,8 @@ public class ChromeBrowser1 {
 		{
 			oBrowser.findElement(By.xpath("//*[@id='userListTableContainer']/table/tbody/tr[2]/td[1]/table/tbody/tr/td/div[1]/span[2]")).click();
 			Thread.sleep(2000);
-			oBrowser.findElement(By.name("password")).sendKeys("System");
-			oBrowser.findElement(By.name("passwordCopy")).sendKeys("System");
+			oBrowser.findElement(By.name("password")).sendKeys("System1");
+			oBrowser.findElement(By.name("passwordCopy")).sendKeys("System1");
 			oBrowser.findElement(By.id("userDataLightBox_commitBtn")).click();
 			Thread.sleep(2000);
 		}catch(Exception e)

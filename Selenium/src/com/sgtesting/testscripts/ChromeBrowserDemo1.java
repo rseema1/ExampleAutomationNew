@@ -1,4 +1,4 @@
-package testscript;
+package com.sgtesting.testscripts;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.SendKeysAction;
 
-public class ChromeBrowser3 {
+public class ChromeBrowserDemo1 {
 	public static WebDriver oBrowser=null;
 	public static void main(String[] args) {
 		launchBrowser();
@@ -24,7 +24,7 @@ public class ChromeBrowser3 {
 	{
 		try
 		{	
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\hp\\eclipse-workspace\\CoreJava_Project\\Library\\drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "G:\\DemoWorkSpace\\Selenium\\Library\\drivers\\chromedriver.exe");
 			oBrowser=new ChromeDriver();
 			oBrowser.manage().window().maximize();
 			Thread.sleep(4000);
@@ -53,13 +53,12 @@ public class ChromeBrowser3 {
 			oBrowser.findElement(By.id("username")).sendKeys("admin");
 			oBrowser.findElement(By.name("pwd")).sendKeys("manager");
 			oBrowser.findElement(By.xpath("//*[@id='loginButton']/div")).click();
-			Thread.sleep(4000);
+			Thread.sleep(5000);
 		}catch(Exception e)
 		{
 			e.printStackTrace();
 		}
 	}
-	
 	
 	
 	static void minimizeFlyOutWindow()
@@ -74,29 +73,7 @@ public class ChromeBrowser3 {
 		}
 	}
 	
-	static void closeApplication()
-	{
-		try
-		{
-			oBrowser.close();
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
 	
-	static void logout()
-	{
-		try
-		{
-			oBrowser.findElement(By.linkText("Logout")).click();
-			Thread.sleep(2000);
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-
 	static void createUser()
 	{
 		try
@@ -109,8 +86,8 @@ public class ChromeBrowser3 {
 			oBrowser.findElement(By.name("lastName")).sendKeys("User1");
 			oBrowser.findElement(By.name("email")).sendKeys("demo@gmail.com");
 			oBrowser.findElement(By.name("username")).sendKeys("demoUser1");
-			oBrowser.findElement(By.name("password")).sendKeys("System");
-			oBrowser.findElement(By.name("passwordCopy")).sendKeys("System");
+			oBrowser.findElement(By.name("password")).sendKeys("Welcome1");
+			oBrowser.findElement(By.name("passwordCopy")).sendKeys("Welcome1");
 			oBrowser.findElement(By.id("userDataLightBox_commitBtn")).click();
 			Thread.sleep(4000);
 		}catch(Exception e)
@@ -119,15 +96,14 @@ public class ChromeBrowser3 {
 		}
 	}
 	
-	
 	static void deleteUser()
 	{
 		try
 		{
 			oBrowser.findElement(By.xpath("//*[@id='userListTableContainer']/table/tbody/tr[2]/td[1]/table/tbody/tr/td/div[1]/span[2]")).click();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			oBrowser.findElement(By.id("userDataLightBox_deleteBtn")).click();
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 			Alert oAlert=oBrowser.switchTo().alert();
 			String content=oAlert.getText();
 			System.out.println(content);
@@ -136,6 +112,28 @@ public class ChromeBrowser3 {
 		}catch(Exception e)
 		{
 			e.printStackTrace();
+		}}
+		
+		static void logout()
+		{
+			try
+			{
+				oBrowser.findElement(By.linkText("Logout")).click();
+				Thread.sleep(2000);
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 		}
-	}
+		static void closeApplication()
+		{
+			try
+			{
+				oBrowser.close();
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
 }
